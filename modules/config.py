@@ -1,3 +1,3 @@
-TILESIZE = 32
+TILESIZE = 16
 W, H = 640, 360
 FPS = 0
