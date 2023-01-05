@@ -1,0 +1,3 @@
+TILESIZE = 32
+W, H = 640, 360
+FPS = 0
