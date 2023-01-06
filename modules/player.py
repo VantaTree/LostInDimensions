@@ -16,14 +16,15 @@ class Player:
         self.image = self.original_image
         self.rect = self.image.get_rect()
 
+        self.slant_rect = pygame.Rect(0, 0, 16, 3)
         self.hitbox = FRect(0, 0, 16, 32)
         self.velocity = pygame.Vector2()
         self.input_x = 0
         self.max_speed = 2
-        self.acceleration = 0.1
-        self.deceleration = 0.1
-        self.jump_power = 6
-        self.gravity = 0.1
+        self.acceleration = 0.5
+        self.deceleration = 0.5
+        self.jump_power = 7.5
+        self.gravity = 0.5
 
         self.facing_right = True
         self.moving = False
@@ -60,16 +61,22 @@ class Player:
     def apply_force(self):
 
         if self.moving:
-            self.velocity.move_towards_ip( (self.max_speed*self.input_x, self.velocity.y), self.acceleration)
+            self.velocity.move_towards_ip( (self.max_speed*self.input_x, self.velocity.y), self.acceleration *self.master.dt)
         else:
-            self.velocity.move_towards_ip( (0, self.velocity.y), self.deceleration)
+            self.velocity.move_towards_ip( (0, self.velocity.y), self.deceleration *self.master.dt)
 
-        # self.velocity.y += self.gravity
+        self.velocity.y += self.gravity *self.master.dt
+        if self.velocity.y > 8:
+            self.velocity.y = 8
 
     def move(self):
 
         self.hitbox.centerx += self.velocity.x * self.master.dt
+        do_collision(self, self.master.game.level, 0, self.master)
         self.hitbox.centery += self.velocity.y * self.master.dt
+        self.on_ground = False
+        do_collision(self, self.master.game.level, 1, self.master)
+        do_collision(self, self.master.game.level, 2, self.master)
 
     def process_events(self):
 
@@ -89,10 +96,82 @@ class Player:
         self.get_input()
         self.apply_force()
         self.move()
-
         self.update_image()
 
-def do_collision(player, level, axis):
+def do_collision(player:Player, level, axis, master):
 
-    if axis == 0:
-        pass
+    px = int(player.hitbox.centerx / TILESIZE)
+    py = int(player.hitbox.centery / TILESIZE)
+    player.slant_rect.midbottom = player.hitbox.midbottom
+
+    for y in range(py-1, py+2):
+        for x in range(px-1, px+2):
+
+            if x < 0 or y < 0: continue
+
+            rect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
+            if not player.hitbox.colliderect(rect): continue
+
+            if axis == 0: # x-axis
+
+                if get_xy(level.wall_coll, x, y):
+
+                    if player.velocity.x > 0:
+                        player.hitbox.right = rect.left
+                    if player.velocity.x < 0:
+                        player.hitbox.left = rect.right
+
+            elif axis == 1: # y-axis
+
+                if get_xy(level.ground_coll, x, y):
+
+                    if rect.collidepoint(player.hitbox.bottomleft) or\
+                        rect.collidepoint(player.hitbox.bottomright):
+                    # if rect.colliderect(player.slant_rect):
+
+                        if player.velocity.y > 0:
+                            player.hitbox.bottom = rect.top
+                            player.velocity.y = 0
+                            player.on_ground = True
+
+                if get_xy(level.ceil_coll, x, y):
+                    if player.velocity.y < 0:
+                        player.hitbox.top = rect.bottom
+                        player.velocity.y = 0
+
+            elif axis == 2 and player.velocity.y >= 0: # slopes
+
+                if not rect.colliderect(player.slant_rect): continue
+                # if not rect.collidepoint(player.hitbox.bottomleft) and not\
+                #         rect.collidepoint(player.hitbox.bottomright):continue
+
+
+                if get_xy(level.up_slant_coll, x, y):
+                    relx = player.hitbox.right - rect.left
+                    if relx > TILESIZE:
+                        player.hitbox.bottom = rect.top
+                        player.on_ground = True
+                        player.velocity.y = 0
+                    elif player.hitbox.bottom > y*TILESIZE-relx+TILESIZE:
+                        player.hitbox.bottom = y*TILESIZE-relx+TILESIZE
+                        player.on_ground = True
+                        player.velocity.y = 0
+
+                if get_xy(level.down_slant_coll, x, y):
+                    relx = rect.right - player.hitbox.left
+                    master.debug("On slope: ", True)
+                    if relx > TILESIZE:
+                        player.hitbox.bottom = rect.top
+                        player.on_ground = True
+                        player.velocity.y = 0
+                    if player.hitbox.bottom > y*TILESIZE-relx+TILESIZE:
+                        player.hitbox.bottom = y*TILESIZE-relx+TILESIZE
+                        player.on_ground = True
+                        player.velocity.y = 0
+                        
+def get_xy(grid, x, y):
+
+    if x < 0 or y < 0: return
+    try:
+        return grid[y][x]
+    except IndexError: return

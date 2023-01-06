@@ -22,9 +22,12 @@ class Level:
         self.start_pos = MAP_CONFIG[map_type]["start_pos"]
 
         self.map_surf = pygame.image.load(F"graphics/maps/{map_type}.png")
-        self.collision = self.load_csv(F"data/maps/{map_type}/collision.csv", True)
-        self.up_slant_coll = self.load_csv(F"data/maps/{map_type}/up_slant_coll.csv", True)
-        self.down_slant_coll = self.load_csv(F"data/maps/{map_type}/down_slant_coll.csv", True)
+        
+        self.ground_coll = self.load_csv(F"data/maps/{map_type}/_ground_coll.csv", True)
+        self.wall_coll = self.load_csv(F"data/maps/{map_type}/_wall_coll.csv", True)
+        self.ceil_coll = self.load_csv(F"data/maps/{map_type}/_ceil_coll.csv", True)
+        self.up_slant_coll = self.load_csv(F"data/maps/{map_type}/_up_slant_coll.csv", True)
+        self.down_slant_coll = self.load_csv(F"data/maps/{map_type}/_down_slant_coll.csv", True)
 
     @staticmethod
     def load_csv(path, integer=False):
@@ -69,6 +72,17 @@ class Level:
     def draw_bg(self):
 
         self.screen.blit(self.map_surf, self.master.offset)
+        
+        for y, row in enumerate(self.up_slant_coll):
+            for x, cell in enumerate(row):
+                if not cell: continue
+                pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
+                ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE+TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
+        for y, row in enumerate(self.down_slant_coll):
+            for x, cell in enumerate(row):
+                if not cell: continue
+                pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
+                ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
 
     def draw_fg(self):
 
