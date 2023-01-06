@@ -7,7 +7,11 @@ MAP_CONFIG = {
     "rocky_test":{
         "size": (48, 16),
         "start_pos" : (32, 207),
-    }
+    },
+    "grassy_test":{
+        "size": (48, 32),
+        "start_pos": (40, 397),
+    }   
 }
 
 class Level:
@@ -23,10 +27,7 @@ class Level:
 
         self.map_surf = pygame.image.load(F"graphics/maps/{map_type}.png")
         
-        self.ground_coll = self.load_csv(F"data/maps/{map_type}/_ground_coll.csv", True)
-        self.wall_coll = self.load_csv(F"data/maps/{map_type}/_wall_coll.csv", True)
-        self.ceil_coll = self.load_csv(F"data/maps/{map_type}/_ceil_coll.csv", True)
-        self.slope_coll = self.load_csv(F"data/maps/{map_type}/_slope_coll.csv", True)
+        self.collision = self.load_csv(F"data/maps/{map_type}/_collision.csv", True)
 
     @staticmethod
     def load_csv(path, integer=False):
@@ -72,7 +73,7 @@ class Level:
 
         self.screen.blit(self.map_surf, self.master.offset)
         
-        for y, row in enumerate(self.slope_coll):
+        for y, row in enumerate(self.collision):
             for x, cell in enumerate(row):
                 if cell == 1:
                     pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
@@ -80,6 +81,10 @@ class Level:
                 elif cell == 2:
                     pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
                     ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
+                elif cell == 3:
+                    pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE), 1)
+                elif cell == 4:
+                    pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE//4), 1)
 
     def draw_fg(self):
 

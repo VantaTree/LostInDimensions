@@ -29,7 +29,7 @@ class Player:
         self.acceleration = 0.5
         self.deceleration = 0.5
         self.jump_power = 7.5
-        self.gravity = 0.5
+        self.gravity = 0.4
 
         self.facing_right = True
         self.moving = False
@@ -160,12 +160,14 @@ def do_collision(player:Player, level, axis, master):
             if x < 0 or y < 0: continue
 
             rect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
-            rectg = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, 3)
+            rectg = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, 8)
             if not player.hitbox.colliderect(rect): continue
+
+            cell = get_xy(level.collision, x, y)
 
             if axis == 0: # x-axis
 
-                if get_xy(level.wall_coll, x, y):
+                if cell == 3:
 
                     if player.velocity.x > 0:
                         player.hitbox.right = rect.left
@@ -173,19 +175,14 @@ def do_collision(player:Player, level, axis, master):
                         player.hitbox.left = rect.right
 
             elif axis == 1: # y-axis
-
-                if get_xy(level.ground_coll, x, y):
-
-                    if rectg.collidepoint(player.hitbox.bottomleft) or\
-                        rectg.collidepoint(player.hitbox.bottomright):
-                    # if rectg.colliderect(player.base_rect):
+                if cell == 3 or ( cell == 4 and (rectg.collidepoint(player.hitbox.bottomleft) or rectg.collidepoint(player.hitbox.bottomright)) ):
 
                         if player.velocity.y > 0:
                             player.hitbox.bottom = rect.top
                             player.velocity.y = 0
                             player.on_ground = True
 
-                if get_xy(level.ceil_coll, x, y):
+                if cell == 3:
                     if player.velocity.y < 0:
                         player.hitbox.top = rect.bottom
                         player.velocity.y = 0
@@ -195,7 +192,6 @@ def do_collision(player:Player, level, axis, master):
                 if not rect.colliderect(player.base_rect): continue
 
                 relx = None
-                cell = get_xy(level.slope_coll, x, y)
                 if cell == 1:
                     relx = player.hitbox.right - rect.left
                 elif cell == 2:
@@ -208,7 +204,7 @@ def do_collision(player:Player, level, axis, master):
                         player.on_ground = True
                         player.velocity.y = 0
                     elif player.hitbox.bottom > y*TILESIZE-relx+TILESIZE:
-                        player.hitbox.bottom = y*TILESIZE-relx+TILESIZE +1 #error correction
+                        player.hitbox.bottom = y*TILESIZE-relx+TILESIZE# +1 #error correction
                         player.on_ground = True
                         player.velocity.y = 0
                         

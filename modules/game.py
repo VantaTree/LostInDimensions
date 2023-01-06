@@ -19,11 +19,12 @@ class Game:
         self.player = Player(master)
 
         self.rock_level = Level(master, "rocky_test")
-        # self.grass_level = Level(master, "haha")
+        self.grass_level = Level(master, "grassy_test")
         # self.corridor_level = Level(master, "lol")
 
-        self.level_index = self.ROCKY
-        self.level = self.rock_level
+        # self.level_index = self.ROCKY
+        # self.level = self.rock_level
+        self.level = self.grass_level
         self.level.transition_to()
 
     def run(self):
