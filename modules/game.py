@@ -1,6 +1,8 @@
 import pygame
+from .engine import *
 from .level import Level
 from .player import Player
+from .npc import load_npc_sprites
 
 class Game:
 
@@ -17,7 +19,8 @@ class Game:
         self.master.offset = pygame.Vector2(0, 0)
 
         self.player = Player(master)
-
+        load_npc_sprites()
+        self.npc_grp = CustomGroup()
         self.rock_level = Level(master, "rocky_test")
         self.grass_level = Level(master, "grassy_test")
         # self.corridor_level = Level(master, "lol")
