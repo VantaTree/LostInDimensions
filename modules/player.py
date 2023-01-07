@@ -22,7 +22,7 @@ class Player:
         self.anim_speed = 0.15
 
         self.base_rect = FRect(0, 0, 14, 3)
-        self.hitbox = FRect(0, 0, 14, 28)
+        self.hitbox = FRect(0, 0, 13, 28)
         self.velocity = pygame.Vector2()
         self.input_x = 0
         self.max_speed = 2
@@ -37,6 +37,8 @@ class Player:
         self.on_ground = True
         self.jumping = False
         self.landing = False
+
+        self.in_control = True
 
         self.JUMP_TIMER = CustomTimer()
 
@@ -73,9 +75,13 @@ class Player:
 
     def get_input(self):
 
-        keys = pygame.key.get_pressed()
+        if not self.in_control:
+            self.moving = False
+            return
 
         self.input_x = 0
+
+        keys = pygame.key.get_pressed()
         if keys[pygame.K_d]:
             self.input_x += 1
             self.facing_right = True
@@ -123,11 +129,15 @@ class Player:
 
     def process_events(self):
 
-        for event in pygame.event.get((pygame.KEYUP)):
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_SPACE:
-                    self.JUMP_TIMER.stop()
-                    self.can_jump = True
+        if self.in_control:
+            for event in pygame.event.get((pygame.KEYUP, pygame.KEYDOWN)):
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_SPACE:
+                        self.JUMP_TIMER.stop()
+                        self.can_jump = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_e:
+                        self.master.game.level.dg_manager.check_interact()
 
         if self.JUMP_TIMER.check():
             self.can_jump = True
@@ -144,7 +154,7 @@ class Player:
         self.move()
         self.update_image()
 
-        self.master.debug("pos: ", self.hitbox.midbottom)
+        self.master.debug("pos: ", (round(self.hitbox.centerx, 2), round(self.hitbox.bottom, 2)))
         self.master.debug("on ground: ", self.on_ground)
 
 
@@ -153,6 +163,7 @@ def do_collision(player:Player, level, axis, master):
     px = int(player.hitbox.centerx / TILESIZE)
     py = int(player.hitbox.centery / TILESIZE)
     player.base_rect.midbottom = player.hitbox.midbottom
+    player.base_rect.y += 1
 
     for y in range(py-1, py+2):
         for x in range(px-1, px+2):

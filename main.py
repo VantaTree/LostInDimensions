@@ -11,6 +11,8 @@ class Master:
         self.dt:float
         self.offset:pygame.Vector2
 
+        self.font_1 = pygame.font.Font("fonts/PixelOperator.ttf", 14)
+
     
 class App:
 
@@ -28,7 +30,7 @@ class App:
 
         self.state = self.IN_GAME
 
-        self.master = Master
+        self.master = Master()
         self.master.app = self
         self.debug = Debug()
         self.master.debug = self.debug

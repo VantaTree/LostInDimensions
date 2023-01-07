@@ -1,4 +1,5 @@
 import pygame
+from .config import *
 from .engine import *
 
 NPC_ANIMS = {}
@@ -16,11 +17,11 @@ class NPC(pygame.sprite.Sprite):
         self.screen = pygame.display.get_surface()
 
         self.type = type
-        self.pos = pos
+        self.pos = pos[0]*TILESIZE + TILESIZE//2, pos[1]*TILESIZE+TILESIZE-1
 
         self.animation = NPC_ANIMS[type]
         self.image:pygame.Surface = self.animation[0]
-        self.rect = self.image.get_rect(midbottom=pos)
+        self.rect = self.image.get_rect(midbottom=self.pos)
 
         self.anim_index = 0
         self.anim_speed = anim_speed

@@ -20,7 +20,6 @@ class Game:
 
         self.player = Player(master)
         load_npc_sprites()
-        self.npc_grp = CustomGroup()
         self.rock_level = Level(master, "rocky_test")
         self.grass_level = Level(master, "grassy_test")
         # self.corridor_level = Level(master, "lol")
