@@ -38,13 +38,15 @@ class Player:
         self.jumping = False
         self.landing = False
 
-        self.in_control = True
+        self.in_control = False
+        self.transition_state = "sitting"
 
         self.JUMP_TIMER = CustomTimer()
 
     def update_image(self):
 
-        if self.landing: state = "land"
+        if self.transition_state: state = self.transition_state
+        elif self.landing: state = "land"
         elif self.jumping: state = "jump"
         elif not self.on_ground: state = "midair"
         elif self.moving: state = "run"
@@ -61,10 +63,15 @@ class Player:
             image = self.animations[state][0]
             self.anim_index = 0
 
+            if state == "to_sit": self.transition_state = "sitting"
+            elif state == "to_stand":
+                self.transition_state = None
+                self.in_control = True
             if self.jumping: self.jumping = False
             if self.landing: self.landing = False
 
-        if self.jumping or self.landing: self.anim_speed = 0.2
+        if self.transition_state: self.anim_speed = 0.15
+        elif self.jumping or self.landing: self.anim_speed = 0.2
         elif self.moving: self.anim_speed = 0.15
         else: self.anim_speed = 0.08
 
@@ -138,7 +145,11 @@ class Player:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_e:
                         self.master.game.level.dg_manager.check_interact()
-
+        elif self.transition_state == "sitting" and self.master.game.transitioning is None:
+            for event in pygame.event.get((pygame.KEYDOWN)):
+                if event.key in (pygame.K_d, pygame.K_a, pygame.K_e, pygame.K_SPACE):
+                    self.transition_state = "to_stand"
+            
         if self.JUMP_TIMER.check():
             self.can_jump = True
 

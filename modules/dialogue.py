@@ -50,7 +50,7 @@ class DialogueInteract(pygame.sprite.Sprite):
 
         super().__init__(grps)
         self.master = master
-        self.rect = pygame.Rect(rect)
+        self.rect = rect if isinstance(rect, pygame.Rect) else pygame.Rect(rect)
         self.type = type
         self.interacted = False
 
@@ -91,10 +91,15 @@ class DialogueManager:
 
         if self.active is None or self.interacting: return
 
-        self.master.player.in_control = False
-        self.interacting = True
         self.master.player.facing_right = self.active.rect.centerx > self.master.player.hitbox.centerx
+        
+        if "portal" in self.active.type:
+            self.master.game.entered_portal()
+            return
+
+        self.master.player.in_control = False
         self.page_index = 0
+        self.interacting = True
 
     def draw(self):
 
@@ -131,6 +136,8 @@ class DialogueManager:
                     self.page_index += 1
 
     def update(self):
+
+        self.master.debug("interacting: ", self.interacting)
 
         if self.interacting:
             self.run_dialogue_box()
