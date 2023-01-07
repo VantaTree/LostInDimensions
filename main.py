@@ -42,6 +42,7 @@ class App:
             pygame.display.update()
 
             self.master.dt = self.clock.tick(FPS) / 16.667
+            if self.master.dt > 10: self.master.dt = 10
             self.debug("FPS:", round(self.clock.get_fps(), 2))
 
             for event in pygame.event.get((pygame.QUIT)):
