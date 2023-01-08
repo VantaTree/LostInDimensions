@@ -22,8 +22,11 @@ class Game:
         load_npc_sprites()
         load_portal_anims()
         self.player = Player(master)
-        self.rock_level = Level(master, "rocky_test")
-        self.grass_level = Level(master, "grassy_test")
+        # self.rock_level = Level(master, "rocky_test")
+        # self.grass_level = Level(master, "grassy_test")
+
+        self.rock_level = Level(master, "rocky_level")
+        self.grass_level = Level(master, "grassy_level")
         # self.corridor_level = Level(master, "lol")
 
         self.level_index = self.GRASSY

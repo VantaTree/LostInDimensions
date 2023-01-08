@@ -18,6 +18,18 @@ MAP_CONFIG = {
         "start_pos": (40, 397),
         "portal-0": ((40, 397), "yellow"),
         "portal-1": ((536, 495), "red"),
+    },   
+    "rocky_level":{
+        "size": (120, 68),
+        "start_pos": (903, 143),
+        "portal-0": ((32, 1040), "red"),
+        "portal-1": ((1872, 175), "yellow"),
+    },   
+    "grassy_level":{
+        "size": (120, 68),
+        "start_pos": (888, 559),
+        "portal-0": ((52, 143), "yellow"),
+        "portal-1": ((1885, 735), "red"),
     }   
 }
 
@@ -39,6 +51,12 @@ NPC_CONFIG = {
         {"pos": (26, 19), "type":"slimer"},
         {"pos": (18, 30), "type":"tooth_walker"},
         {"pos": (15, 11), "type":"vulture"},
+    ],
+    "rocky_level":[
+
+    ],
+    "grassy_level":[
+
     ]
 }
 
@@ -48,6 +66,12 @@ DIALOGUE_CONFIG = {
     ],
     "grassy_test":[
         {"rect":(64, 350, 64, 64), "type":"a_house"},
+    ],
+    "rocky_level":[
+        {"rect":(675, 128, 45, 48), "type":"green_tree"},
+    ],
+    "grassy_level":[
+        {"rect":(940, 124, 64, 36), "type":"a_house"},
     ]
 }
 
@@ -113,7 +137,7 @@ class Level:
         elif self.master.offset.x < -self.size[0]*TILESIZE + W:
             self.master.offset.x = -self.size[0]*TILESIZE + W
 
-        # if self.master.offset.y > 0: self.master.offset.y = 0
+        if self.master.offset.y > 0: self.master.offset.y = 0
         if self.master.offset.y < -self.size[1]*TILESIZE + H:
             self.master.offset.y = -self.size[1]*TILESIZE + H
 
@@ -133,18 +157,18 @@ class Level:
 
         self.screen.blit(self.map_surf, self.master.offset)
         
-        for y, row in enumerate(self.collision):
-            for x, cell in enumerate(row):
-                if cell == 1:
-                    pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
-                    ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE+TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
-                elif cell == 2:
-                    pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
-                    ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
-                elif cell == 3:
-                    pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE), 1)
-                elif cell == 4:
-                    pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE//4), 1)
+        # for y, row in enumerate(self.collision):
+        #     for x, cell in enumerate(row):
+        #         if cell == 1:
+        #             pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
+        #             ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE+TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
+        #         elif cell == 2:
+        #             pygame.draw.polygon(self.screen, 'green', ( ((x*TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy,
+        #             ((x*TILESIZE+TILESIZE, y*TILESIZE+TILESIZE)+self.master.offset).xy, ((x*TILESIZE, y*TILESIZE)+self.master.offset).xy ), 1)
+        #         elif cell == 3:
+        #             pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE), 1)
+        #         elif cell == 4:
+        #             pygame.draw.rect(self.screen, "green", (x*TILESIZE+self.master.offset.x, y*TILESIZE+self.master.offset.y, TILESIZE, TILESIZE//4), 1)
 
         self.portal0.draw()
         self.portal1.draw()
