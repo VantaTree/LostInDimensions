@@ -5,12 +5,13 @@ from .engine import *
 from .config import *
 
 DIALOGUES = {}
+DIALOGUES_NPC = {}
 
-for file in os.listdir("data/dialogues"):
+for file in os.listdir("data/dialogues/simple"):
 
     DIALOGUES[file[:-4]] = []
     page = []
-    with open("data/dialogues/"+file) as f:
+    with open("data/dialogues/simple/"+file) as f:
         for line in f.read().splitlines():
             line = line.strip()
 
@@ -20,39 +21,40 @@ for file in os.listdir("data/dialogues"):
             elif line:
                 page.append(line)
 
-# for file in os.listdir("data/dialogues"):
+for file in os.listdir("data/dialogues/npc"):
 
-#     name = file[:-4]
-#     DIALOGUES[name] = {False:[], True:[]}
+    name = file[:-4]
+    DIALOGUES_NPC[name] = {False:[], True:[]}
 
-#     with open("data/dialogues/"+file) as f:
-#         initial = True
-#         page = []
-#         for line in f.read().splitlines():
-#             line = line.strip()
+    with open("data/dialogues/npc/"+file) as f:
+        initial = True
+        page = []
+        for line in f.read().splitlines():
+            line = line.strip()
 
-#             if line == "<p>":
-#                 DIALOGUES[name][not initial].append("\n".join(page))
-#                 page = []
-#             elif line == "<e>":
-#                 DIALOGUES[name][not initial].append("\n".join(page))
-#                 if initial: initial = False
-#                 page = []
-#             elif line:
-#                 page.append(line)
+            if line == "<p>":
+                DIALOGUES_NPC[name][not initial].append("\n".join(page))
+                page = []
+            elif line == "<e>":
+                DIALOGUES_NPC[name][not initial].append("\n".join(page))
+                if initial: initial = False
+                page = []
+            elif line:
+                page.append(line)
 
 # import json
-# print(json.dumps(DIALOGUES, indent=2))
+# print(json.dumps(DIALOGUES_NPC, indent=2))
 
 class DialogueInteract(pygame.sprite.Sprite):
 
-    def __init__(self, master, grps, rect, type):
+    def __init__(self, master, grps, rect, type, is_npc):
 
         super().__init__(grps)
         self.master = master
         self.rect = rect if isinstance(rect, pygame.Rect) else pygame.Rect(rect)
         self.type = type
         self.interacted = False
+        self.is_npc = is_npc
 
 class DialogueManager:
 
@@ -72,9 +74,9 @@ class DialogueManager:
         self.page_index = 0
         self.text_pos = W//2 - 150+12, H-64-8+12-3
     
-    def add(self, rect, type):
+    def add(self, rect, type, is_npc=False):
 
-        DialogueInteract(self.master, [self.dialogue_grp], rect, type)
+        return DialogueInteract(self.master, [self.dialogue_grp], rect, type, is_npc)
 
     def check_near(self):
         
@@ -118,12 +120,17 @@ class DialogueManager:
 
         self.screen.blit(self.dialogue_box_surf, (W//2 - 150, H-64-8))
 
+        if self.active.is_npc:
+            dialogue_page = DIALOGUES_NPC[self.active.type][self.active.interacted]
+        else: dialogue_page = DIALOGUES[self.active.type]
+
         try:
-            for i, line in enumerate(DIALOGUES[self.active.type][self.page_index].splitlines()):
+            for i, line in enumerate(dialogue_page[self.page_index].splitlines()):
                 pos = self.text_pos[0], self.master.font_1.size("")[1]*i + self.text_pos[1]
                 text = self.master.font_1.render(line, False, 0x0)
                 self.screen.blit(text, pos)
         except IndexError:
+            self.active.interacted = True
             self.interacting = False
             self.master.player.in_control = True
 

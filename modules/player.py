@@ -149,6 +149,7 @@ class Player:
             for event in pygame.event.get((pygame.KEYDOWN)):
                 if event.key in (pygame.K_d, pygame.K_a, pygame.K_e, pygame.K_SPACE):
                     self.transition_state = "to_stand"
+                    self.anim_index = 0
             
         if self.JUMP_TIMER.check():
             self.can_jump = True

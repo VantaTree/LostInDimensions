@@ -9,7 +9,7 @@ def load_npc_sprites():
 
 class NPC(pygame.sprite.Sprite):
 
-    def __init__(self, master, grps, pos, type, anim_speed=0.15, flip=False):
+    def __init__(self, master, grps, level, pos, type, anim_speed=0.15, flip=False):
 
         super().__init__(grps)
 
@@ -26,6 +26,8 @@ class NPC(pygame.sprite.Sprite):
         self.anim_index = 0
         self.anim_speed = anim_speed
         self.flip = flip
+
+        self.dialogue = level.dg_manager.add(self.rect.inflate(32, 0), "test", is_npc=True)
 
     def update_image(self):
 

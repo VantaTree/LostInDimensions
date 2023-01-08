@@ -95,7 +95,7 @@ class Level:
     def load_npcs(self):
 
         for npc in NPC_CONFIG[self.map_type]:
-            NPC(self.master, [self.npc_grp], **npc)
+            NPC(self.master, [self.npc_grp], self, **npc)
 
     def snap_offset(self):
 
