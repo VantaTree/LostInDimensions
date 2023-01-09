@@ -1,5 +1,6 @@
 import pygame
 import csv
+from math import ceil
 from .config import *
 from .engine import *
 from .npc import NPC
@@ -24,12 +25,18 @@ MAP_CONFIG = {
         "start_pos": (903, 143),
         "portal-0": ((32, 1040), "red"),
         "portal-1": ((1872, 175), "yellow"),
+        "parallax_surf": ["back", "middle", "near"],
+        "parallax_off":[(W/2, 160), (W/2, 160), (W/2, 160)], #640
+        "parallax_v":[(.2, 1), (.3, 1), (.4, 1)],
     },   
     "grassy_level":{
         "size": (120, 68),
         "start_pos": (888, 559),
         "portal-0": ((52, 143), "yellow"),
         "portal-1": ((1885, 735), "red"),
+        "parallax_surf": ["back_g", "middle_g"],
+        "parallax_off":[(W/2, 128), (W/2, 128)], #608
+        "parallax_v":[(.3, 1), (.4, 1)],
     }   
 }
 
@@ -88,6 +95,8 @@ class Level:
         self.map_surf = pygame.image.load(F"graphics/maps/{map_type}.png")
         self.collision = self.load_csv(F"data/maps/{map_type}/_collision.csv", True)
 
+        self.load_parallax()
+
         self.dg_manager = DialogueManager(master)
         self.load_dialogues()
 
@@ -109,6 +118,17 @@ class Level:
             grid = [row for row in reader]
 
         return grid
+
+    def load_parallax(self):
+
+        self.p_imgs = []
+        for surf in MAP_CONFIG[self.map_type]["parallax_surf"]:
+            img = pygame.image.load(F"graphics/maps/parallax/{surf}.png")
+            img = pygame.transform.scale2x(img)
+            self.p_imgs.append(img)
+
+        self.p_offsets = MAP_CONFIG[self.map_type]["parallax_off"]
+        self.p_vec = MAP_CONFIG[self.map_type]["parallax_v"]
 
     def load_dialogues(self):
 
@@ -154,6 +174,21 @@ class Level:
         self.clamp_offset()
 
     def draw_bg(self):
+
+        if self.map_type == "grassy_level":
+            self.screen.fill(0x747029)
+        elif self.map_type == "rocky_level":
+            self.screen.fill(0xc06872)
+
+        for offset, vec, img in zip(self.p_offsets, self.p_vec, self.p_imgs):
+            pos = self.master.offset.x *vec[0] +offset[0], \
+                self.master.offset.y *vec[1] +offset[1]
+            for i in range(ceil(pos[0]/img.get_width())):
+                self.screen.blit(img, (pos[0]+ (i+1)*img.get_width()*-1, pos[1]))
+            for i in range(ceil((W-pos[0])/img.get_width())):
+                self.screen.blit(img, (pos[0]+ i*img.get_width(), pos[1]))
+
+
 
         self.screen.blit(self.map_surf, self.master.offset)
         
