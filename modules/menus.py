@@ -18,11 +18,11 @@ class Button():
         self.rect = self.image.get_rect(center=pos)
         self.detection_rect = self.rect.inflate(10,10)
 
-        self.underline = pygame.Surface((self.image.get_width(), 2))
+        self.underline = pygame.Surface((self.image.get_width(), 1))
         self.underline.fill(self.text_color)
         self.underline_rect = self.underline.get_rect(midtop=(self.rect.midbottom))
 
-        self.shadow = self.master.font.render(action.upper(), False, (136, 8, 8))
+        self.shadow = self.master.font.render(action.upper(), False, (105, 75, 105))
         self.shadow.set_alpha(200)
         
 
@@ -43,7 +43,7 @@ class Button():
     def draw(self):
         
         if not self.mouse_hover:
-            self.screen.blit(self.shadow, (self.rect.left-3, self.rect.top+3))
+            self.screen.blit(self.shadow, (self.rect.left-2, self.rect.top+2))
         else:
             self.screen.blit(self.underline, self.underline_rect)
 
@@ -57,18 +57,19 @@ class MainMenu():
         self.master.main_menu = self
         self.screen = pygame.display.get_surface()
         # self.mainmenu_bg = pygame.image.load("graphics/banner.png").convert()
-        self.title_surf = self.master.font_big.render('Title', False, 'white')
+        self.title_surf = self.master.font_big.render('Lost In Dimensions', False, (163, 32, 28))
         self.title_rect = self.title_surf.get_rect(midtop=(W/2, 40))
-        self.title_shadow = self.master.font_big.render('Title', False, (136, 8, 8))
+        self.title_shadow = self.master.font_big.render('Lost In Dimensions', False, (105, 75, 105))
         self.title_shadow.set_alpha(200)
         self.buttons:list[Button] = []
         self.create_buttons()
         
     def create_buttons(self):
 
-        Button(self.master, (W//2, H*0.5), 'start', self.buttons)
-        Button(self.master, (W//2, H*0.6), 'fullscreen', self.buttons)
-        Button(self.master, (W//2, H*0.7), 'quit', self.buttons)
+        col = (252, 205, 146)
+        Button(self.master, (W//2, H*0.5), 'start', self.buttons, col)
+        Button(self.master, (W//2, H*0.6), 'fullscreen', self.buttons, col)
+        Button(self.master, (W//2, H*0.7), 'quit', self.buttons, col)
 
     def update(self):
         
@@ -77,9 +78,9 @@ class MainMenu():
                 for button in self.buttons:
                     action = button.interact(event.pos, click=True)
                     if action == 'start':
-                        # self.master.music.change_track("in_game")
+                        self.master.music.change_track("in_game")
                         # self.master.sound.dict["start_button"].play()
-                        self.master.app.state = self.master.app.CUTSCENE
+                        self.master.app.state = self.master.app.IN_GAME
                     elif action == 'fullscreen':
                         pygame.display.toggle_fullscreen()
                     elif action == 'quit':
@@ -89,11 +90,11 @@ class MainMenu():
                         return
     def draw(self):
 
-        self.screen.fill((0, 0, 0))
+        self.screen.fill(0xb5737c)
 
         # self.screen.blit(self.mainmenu_bg, (0, 0))
 
-        self.screen.blit(self.title_shadow, (self.title_rect.x-3, self.title_rect.y+3))
+        self.screen.blit(self.title_shadow, (self.title_rect.x-2, self.title_rect.y+2))
         self.screen.blit(self.title_surf, self.title_rect)
 
         for button in self.buttons:
@@ -114,7 +115,7 @@ class PauseMenu():
         self.screen = pygame.display.get_surface()
         self.bg = self.screen.copy()
         self.bg_overlay = pygame.Surface(self.screen.get_size())
-        self.bg_overlay.fill((0,0,0))
+        self.bg_overlay.fill(0xb5737c)
         self.bg_overlay.set_alpha(192)
 
         self.buttons:list[Button] = []

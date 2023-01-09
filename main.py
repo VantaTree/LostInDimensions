@@ -12,6 +12,8 @@ class Master:
         self.offset:pygame.Vector2
 
         self.font_1 = pygame.font.Font("fonts/PixelOperator.ttf", 14)
+        self.font = pygame.font.Font("fonts/PixelOperator-Bold.ttf", 18)
+        self.font_big = pygame.font.Font("fonts/PixelOperator.ttf", 32)
 
     
 class App:
@@ -28,13 +30,14 @@ class App:
         # pygame.display.set_icon(icon)
         self.clock = pygame.time.Clock()
 
-        self.state = self.IN_GAME
+        self.state = self.MAIN_MENU
 
         self.master = Master()
         self.master.app = self
         self.debug = Debug()
         self.master.debug = self.debug
         self.game = Game(self.master)
+        self.main_menu = MainMenu(self.master)
 
     async def run(self):
         while True:
@@ -58,7 +61,9 @@ class App:
 
     def run_states(self):
 
-        if self.state == self.IN_GAME:
+        if self.state == self.MAIN_MENU:
+            self.main_menu.run()
+        elif self.state == self.IN_GAME:
             self.game.run()
 
 if __name__ == "__main__":

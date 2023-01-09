@@ -1,5 +1,7 @@
 import pygame
 from .engine import *
+from .music import Music
+from .menus import PauseMenu
 from .level import Level
 from .player import Player
 from .npc import load_npc_sprites
@@ -19,7 +21,9 @@ class Game:
 
         self.master.offset = pygame.Vector2(0, 0)
 
-        load_npc_sprites()
+        self.music = Music(master)
+        self.pause_menu = PauseMenu(master)
+        load_npc_sprites()  
         load_portal_anims()
         self.player = Player(master)
         # self.rock_level = Level(master, "rocky_test")
@@ -39,6 +43,14 @@ class Game:
         self.black_surf = pygame.Surface(self.screen.get_size())
         self.fade_alpha = 0
         self.fading = 0
+
+        self.paused = False
+
+    def pause_game(self):
+
+        if not self.paused:
+            self.paused = True
+            self.pause_menu.open()
 
     def entered_portal(self):
 
@@ -75,7 +87,12 @@ class Game:
 
     def run(self):
 
-        self.screen.fill("lightgray")
+        self.music.run()
+
+        if self.paused:
+            self.pause_menu.draw()
+            self.pause_menu.update()
+            return
 
         self.player.update()
         self.level.update()

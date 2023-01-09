@@ -145,6 +145,8 @@ class Player:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_e:
                         self.master.game.level.dg_manager.check_interact()
+                    if event.key == pygame.K_ESCAPE:
+                        self.master.game.pause_game()
         elif self.transition_state == "sitting" and self.master.game.transitioning is None:
             for event in pygame.event.get((pygame.KEYDOWN)):
                 if event.key in (pygame.K_d, pygame.K_a, pygame.K_e, pygame.K_SPACE):
