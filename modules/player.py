@@ -105,6 +105,7 @@ class Player:
             self.JUMP_TIMER.start(600)
             self.jumping = True
             self.anim_index = 0
+            self.master.sounds["jump2"].play()
 
         self.moving = bool(self.input_x)
 
@@ -116,8 +117,8 @@ class Player:
             self.velocity.move_towards_ip( (0, self.velocity.y), self.deceleration *self.master.dt)
 
         self.velocity.y += self.gravity *self.master.dt
-        if self.velocity.y > 8:
-            self.velocity.y = 8
+        if self.velocity.y > 10:
+            self.velocity.y = 10
 
     def move(self):
 
@@ -135,6 +136,8 @@ class Player:
         if self.power_land > 1 and self.on_ground:
             self.landing = True
             self.anim_index = 0
+            if self.power_land >= 9:
+                self.master.sounds["big_thud"].play()
 
     def process_events(self):
 

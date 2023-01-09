@@ -31,13 +31,13 @@ class Button():
     def interact(self, mouse_pos, click=False):
 
         if click and self.mouse_hover:
-            # if self.action != "start":self.master.sound.dict["button_click"].play()
+            if self.action != "start":self.master.sounds["click"].play()
             return self.action
         self.mouse_hover = self.detection_rect.collidepoint(mouse_pos)
         if self.mouse_hover:
             if not self.hover_sound_played:
                 self.hover_sound_played = True
-                # self.master.sound.dict["button_hover"].play()
+                self.master.sounds["soft_click"].play()
         else:self.hover_sound_played = False
 
     def draw(self):
@@ -79,7 +79,7 @@ class MainMenu():
                     action = button.interact(event.pos, click=True)
                     if action == 'start':
                         self.master.music.change_track("in_game")
-                        # self.master.sound.dict["start_button"].play()
+                        self.master.sounds["click"].play()
                         self.master.app.state = self.master.app.IN_GAME
                     elif action == 'fullscreen':
                         pygame.display.toggle_fullscreen()
@@ -129,14 +129,14 @@ class PauseMenu():
 
     def open(self):
         self.bg = self.screen.copy()
-        # self.master.sound.dict["button_click"].play()
+        self.master.sounds["click"].play()
 
     def update(self):
         
         for event in pygame.event.get((pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN)):
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.master.game.paused = False
-                # self.master.sound.dict["button_click"].play()
+                self.master.sounds["click"].play()
                 return
             if event.type == pygame.MOUSEBUTTONDOWN and event.button==1:
                 for button in self.buttons:

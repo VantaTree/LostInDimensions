@@ -33,6 +33,7 @@ class App:
         self.state = self.MAIN_MENU
 
         self.master = Master()
+        SoundSet(self.master)
         self.master.app = self
         self.debug = Debug()
         self.master.debug = self.debug

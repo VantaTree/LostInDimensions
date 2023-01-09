@@ -35,6 +35,8 @@ class Music:
         if self.START_NEW_TRACK_TIMER.check():
             pygame.mixer.music.load(self.tracks[self.change_track_to])
             pygame.mixer.music.play(loops=-1, fade_ms=2_000)
+            if self.change_track_to == 'in_game':
+                    pygame.mixer.music.set_volume(0.4)
             self.change_track_to = None
             self.is_loaded = True
 

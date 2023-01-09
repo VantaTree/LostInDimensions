@@ -116,14 +116,15 @@ class DialogueManager:
         self.page_index = 0
         self.interacting = True
         self.active.interacting = True
+        self.master.sounds["select"].play()
         if self.active.is_npc:
             self.active.is_npc.flip = self.active.is_npc.rect.centerx > self.master.player.hitbox.centerx
 
     def draw(self):
 
-        for dg in self.dialogue_grp.sprites():
-            pos = dg.rect.topleft+self.master.offset
-            pygame.draw.rect(self.screen, "blue", (*pos, dg.rect.width, dg.rect.height), 1)
+        # for dg in self.dialogue_grp.sprites():
+        #     pos = dg.rect.topleft+self.master.offset
+        #     pygame.draw.rect(self.screen, "blue", (*pos, dg.rect.width, dg.rect.height), 1)
 
         if self.active and not self.interacting:
             self.button_rect.midbottom = self.active.rect.midtop
@@ -165,6 +166,7 @@ class DialogueManager:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_e:
                         self.page_index += 1
+                        self.master.sounds["select"].play()
         else:
             self.check_near()
         
