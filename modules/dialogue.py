@@ -55,6 +55,7 @@ class DialogueInteract(pygame.sprite.Sprite):
         self.type = type
         self.interacted = False
         self.is_npc = is_npc
+        self.interacting = False
 
 class DialogueManager:
 
@@ -69,6 +70,9 @@ class DialogueManager:
         self.interact_button_surf = pygame.image.load("graphics/ui/interact_button.png").convert_alpha()
         self.dialogue_box_surf = pygame.image.load("graphics/ui/dialogue_box.png").convert_alpha()
         self.button_rect = self.interact_button_surf.get_rect()
+
+        self.icons = load_pngs_dict("graphics/npc_icons")
+        self.icons[""] = pygame.Surface((1, 1), pygame.SRCALPHA)
 
         self.interacting = False
         self.page_index = 0
@@ -102,6 +106,7 @@ class DialogueManager:
         self.master.player.in_control = False
         self.page_index = 0
         self.interacting = True
+        self.active.interacting = True
 
     def draw(self):
 
@@ -125,29 +130,29 @@ class DialogueManager:
         else: dialogue_page = DIALOGUES[self.active.type]
 
         try:
-            for i, line in enumerate(dialogue_page[self.page_index].splitlines()):
-                pos = self.text_pos[0], self.master.font_1.size("")[1]*i + self.text_pos[1]
-                text = self.master.font_1.render(line, False, 0x0)
-                self.screen.blit(text, pos)
+            lines = dialogue_page[self.page_index].splitlines()
+            icon = self.icons[lines[0][1:]]
+            self.screen.blit(icon, (W//2-150+15-icon.get_width(), H-72+15-icon.get_height()))
         except IndexError:
             self.active.interacted = True
             self.interacting = False
+            self.active.interacting = False
             self.master.player.in_control = True
+            return
 
-    def run_dialogue_box(self):
-        
-        for event in pygame.event.get((pygame.KEYDOWN)):
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_e:
-                    self.page_index += 1
+        for i, line in enumerate(lines[1:]):
+            pos = self.text_pos[0], self.master.font_1.size("")[1]*i + self.text_pos[1]
+            text = self.master.font_1.render(line, False, (252, 213, 221))
+            self.screen.blit(text, pos)
 
     def update(self):
 
-        self.master.debug("interacting: ", self.interacting)
-
         if self.interacting:
-            self.run_dialogue_box()
+
+            for event in pygame.event.get((pygame.KEYDOWN)):
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_e:
+                        self.page_index += 1
         else:
             self.check_near()
         

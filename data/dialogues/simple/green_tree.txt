@@ -1,5 +1,7 @@
+&player
 A green tree here. How is this possible?
 <p>
+&player
 New page
 Next line
 Another line

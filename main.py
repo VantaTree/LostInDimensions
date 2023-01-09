@@ -22,7 +22,7 @@ class App:
     IN_GAME = 3
 
     def __init__(self):
-
+        
         pygame.init()
         self.screen = pygame.display.set_mode((W, H), pygame.SCALED)
         pygame.display.set_caption("Lost In Dimensions")

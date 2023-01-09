@@ -1,24 +1,36 @@
+&witch
 Laa laa lalalllaaaaa...
 <p>
+&witch
 ...
 <p>
+&witch
 Oh Hi, didn't see you there.
 what brings you here?
 <p>
+&witch
 ...
 <p>
-You don't talk very much do you?
+&player
+Did I Interupt?
+<p>
+&witch
 you want something? I have this this red
 crystal I found from a very rocky area.
 <p>
+&witch
 Here take it, and don't scare me like that
 again.
 <e>
+&witch
 Laa lalallalllaaala
 <p>
+&witch
 I like to sing when I am lost
 <p>
+&witch
 You look lost too
 <p>
+&witch
 Do you want to sing with me?
 <e>

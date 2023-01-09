@@ -41,6 +41,8 @@ class Player:
         self.in_control = False
         self.transition_state = "sitting"
 
+        self.inventory = set()
+
         self.JUMP_TIMER = CustomTimer()
 
     def update_image(self):

@@ -41,10 +41,16 @@ class NPC(pygame.sprite.Sprite):
 
         self.image = pygame.transform.flip(image, self.flip, False)
 
+    def check_dialogue(self):
+
+        if self.dialogue.interacting:
+            self.master.debug("KRIX", "")
+
     def draw(self):
 
         self.screen.blit(self.image, self.rect.topleft+self.master.offset)
 
     def update(self):
 
+        self.check_dialogue()
         self.update_image()

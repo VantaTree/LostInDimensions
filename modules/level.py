@@ -7,19 +7,7 @@ from .npc import NPC
 from .dialogue import DialogueManager
 from .portal import Portal
 
-MAP_CONFIG = {
-    "rocky_test":{
-        "size": (48, 16),
-        "start_pos" : (32, 207),
-        "portal-0": ((32, 207), "red"),
-        "portal-1": ((455, 111), "yellow"),
-    },
-    "grassy_test":{
-        "size": (48, 32),
-        "start_pos": (40, 397),
-        "portal-0": ((40, 397), "yellow"),
-        "portal-1": ((536, 495), "red"),
-    },   
+MAP_CONFIG = {  
     "rocky_level":{
         "size": (120, 68),
         "start_pos": (903, 143),
@@ -41,39 +29,15 @@ MAP_CONFIG = {
 }
 
 NPC_CONFIG = {
-    "rocky_test":[
-        {"pos": (28, 6), "type":"slimer"},
-    ],
-    "grassy_test":[
-        {"pos": (31, 12), "type":"witch"},
-        {"pos": (27, 15), "type":"dino"},
-        {"pos": (39, 20), "type":"doctor", "anim_speed":0.1},
-        {"pos": (37, 24), "type":"dog"},
-        {"pos": (19, 19), "type":"eye_ball"},
-        {"pos": (43, 18), "type":"necro"},
-        {"pos": (32, 30), "type":"nurse", "anim_speed":0.1},
-        {"pos": (30, 30), "type":"patient", "anim_speed":0.1},
-        {"pos": (20, 30), "type":"piranha"},
-        {"pos": (23, 30), "type":"skeleton"},
-        {"pos": (26, 19), "type":"slimer"},
-        {"pos": (18, 30), "type":"tooth_walker"},
-        {"pos": (15, 11), "type":"vulture"},
-    ],
     "rocky_level":[
 
     ],
     "grassy_level":[
-
+        {"pos": (47, 35), "type":"witch"},
     ]
 }
 
 DIALOGUE_CONFIG = {
-    "rocky_test":[
-        {"rect":(16, 165, 64, 64), "type":"green_tree"},
-    ],
-    "grassy_test":[
-        {"rect":(64, 350, 64, 64), "type":"a_house"},
-    ],
     "rocky_level":[
         {"rect":(675, 128, 45, 48), "type":"green_tree"},
     ],
