@@ -1,0 +1,25 @@
+&nurse
+G O. A W A Y.
+<p>
+&player
+Oh my, I shouldn't have come here
+<p>
+&nurse
+AAAAAA AAAAAA AAAAAAAAA AAA
+AAAAA AAA AAAAA
+AAAAAAAAA AAAAAAA AAAAAA AAAAA A
+<p>
+&player
+I don't know why, but I kind of pity it
+<p>
+&
+Your ears hurt
+<e>
+&nurse
+AAAAAA AAAAA AAA
+AAAAAAAA AAA AAAAAA AAA AAAAA
+AAAAA AAAAAAAAAAA AAAA A
+<p>
+&
+Your ears hurt
+<e>

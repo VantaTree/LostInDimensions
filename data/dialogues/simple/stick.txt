@@ -1,0 +1,12 @@
+&
+You trip on something
+<p>
+&player
+What was that?
+<p>
+&player
+It's a stick
+<p>
+&
+You obtained a "stick"
+<e>

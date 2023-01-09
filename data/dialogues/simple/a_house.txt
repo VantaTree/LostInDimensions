@@ -1,8 +1,3 @@
 &player
 It's a house, whose could it be?
-<p>
-&player
-New page
-Next line
-Another line
 <e>

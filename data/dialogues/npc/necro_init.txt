@@ -1,0 +1,76 @@
+&necro
+Hello Mortal
+<p>
+&player
+[startled] What was that?! did he just talk
+to me,  but not with his mouth
+<p>
+&player
+I am sure I heard him inside my head
+<p>
+&necro
+I see, you don't feel like communicating back
+Nevertheless, even I can feel quite lonely
+<p>
+&necro
+...sigh
+<p>
+&necro
+When I woke up here, I felt unfathomable
+pain, I was in the bright sunlight! I don't
+even know how I got here, but it was painful
+<p>
+&player
+I am unable to get used to him talking like
+this, feels like I can't even hear my own
+thoughts
+<p>
+&necro
+Whoever is at fault for this chaos, must be
+a cruel being
+<p>
+&necro
+Everyone knows that us Dawouas must only
+stay in the dark
+<p>
+&necro
+I would have rather died than experience
+that pain again
+<p>
+&player
+He just keeps going
+<p>
+&player
+He must really be lonely then
+<p>
+&necro
+I always keep myself entertained with my
+little pet Kathy here
+<p>
+&necro
+Greet the child for me, will you
+<p>
+&
+[female voice] Hi Child!
+<p>
+&player
+[surprised] Wait is...
+<p>
+&player
+Is she that skull?!
+<p>
+&player
+But that's dead...
+<p>
+&player
+This is making me very uncomfortable
+<p>
+&
+You stop hearing him
+<e>
+&player
+Do you Yield?
+<p>
+&
+He doesn't respond
+<e>

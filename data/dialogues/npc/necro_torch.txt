@@ -1,0 +1,30 @@
+&
+you try to light the torch with his fire
+<p>
+&necro
+STAY BACK child
+<p>
+&necro
+You are not worthy to recieve the FIRE!
+<p>
+&necro
+Satisfy me and I shall give it to you
+<p>
+&player
+There must be an another way
+<e>
+&
+you try to light the torch with his fire
+<p>
+&necro
+STAY BACK child
+<p>
+&necro
+You are not worthy to recieve the FIRE!
+<p>
+&necro
+Satisfy me and I shall give it to you
+<p>
+&player
+There must be an another way
+<e>

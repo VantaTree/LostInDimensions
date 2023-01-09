@@ -1,0 +1,394 @@
+Dialogues:::::
+
+#######################################################################
+
+sprite 1: DINO
+
+sprite 1: gnarls
+Player: What a weird looking thing.
+Wait, the is something written on the ground.
+Ground: "Do you know where I am?"
+Player: Oh? It seems that he understands our language and he
+comunicates by writing on the ground with its' claws.
+sprite 1: clears ground and writes something else.
+Ground: "Well, I guess I just have to adapt first. My homeland looks more like a desert though."
+Player: Wait, his claw looks injured, maybe I can get him something to cover up the wound.
+
+//You can obtain bandage from the man with bandages//
+Player:bandages the hurt claw*
+
+sprite 1: humms happily, waving its' tail and writes on the ground again:
+"Thank you, sir. I do not have mutch to offer, but take this."
+
+Player: its' behavour actually reminds me of a dog.
+
+//Player obtains "stick"//
+
+#######################################################################
+
+sprite 2: DOCTOR
+
+Monk: "Are you lost, my child?"
+
+Player: Oh? He is looking very similar to me, could it be that we are we the same species?
+
+Monk: "This is a weird place, isn't it? But 
+even if it's unfamilar, for me, it doesn't matter where I am, for my faith will always be my guide."
+
+Player: I do not know if this is noble or strange... was I religious too? Ugh I don't
+remember, my head hurts."
+
+Monk: Are you okay my child? You look pained. Take this, it might prove itself
+useful for you, it must be fate, that we crossed paths.
+
+The monk spread his hand out in your direction and in it, a torch grew out.
+
+//Player obtains torch//
+Player: Maybe I can find a way to light it.
+
+#######################################################################
+
+Sprite 3: DOG
+
+Sprite 3 jumps around you.
+
+Player: Oh this thing is energetic, first it scared me with its'
+scary looking teeth, but weirdly, it seems kind of... playful?
+
+If player has stick:
+
+Player: throws stick
+
+Sprite 3 runs after the stick and brings it back, laying it in front of the Player.
+
+Player: Again? I don't know if I have time for this, but it's also a little fun. throws stick again
+
+Sprite 3 runs after the stick and brings it back proudly.
+Player: I mean, it seems intelligent enough to know what it should do. Wait, maybe this thing thinks the same thing about me.
+
+...
+
+Ok one last throw. throws stick
+
+Player: Oops, it went a little too far.
+
+Sprite 3 comes back with a dead insect in it's mouth.
+
+Player: Ew, what is that.
+
+//Player obtains dead insect//
+I think we can make Sprite4 EYE_BALL stay the way it is, 
+but instead of the red crystal the Player obtains a melody. 
+And since he has amnesia, he forgot that this existed, he also 
+feels calmed by it (important for sprite 6 NURSE)
+
+#######################################################################
+
+Sprite 5: NECROMANCER
+
+Sprite 5: "Hello, mortal."
+
+Player: startled What was that? I am sure he talked to me, but not with his mouth,
+but... inside my own head?
+
+Sprite 5: "I see, you do not feel like communicating back. Nevertheless, even I can feel quite lonely." 
+
+"You know, it was really bad for me when I woke up in this world, I was in the bright
+sunlight! I don't even know how I got there but it was painful for sure."
+
+Player: I just can't get used to him talking to me like this, feels like I can not even
+hear my own thouhts.
+
+Sprite 5: "Whoever is at fault for this chaos, it must be a cruel being. Everyone knows that
+Dawouas must be in the dark. I would have rather died than to expierence that pain from sunlight again. 
+
+Player: He just keeps going, I do believe he really must be lonely then. Also... Dawoua,
+that's what his species is called? 
+
+Sprite 5: "I always keep myself entertained with my little pet Kathy here. Say hello, Kathy. 
+
+Kathy: "Hello."
+
+Player: This can't be. A female voice now? But I was sure this skeleton is... well, dead.
+It looks like a human skull, which is making this more uncomfortable for me now.
+
+Sprite 5: talking to the skull
+
+Player: Finally, I cannot hear him anymore. It looks like he is collecting human bones.
+
+/Conversation end if player has no torch and no bone hand/
+
+If Player has torch and no bone hand:
+
+Player: tries to light his torch
+
+Sprite 5: "Hey friend, this fire is not for just anyone. In my land we only gave it to those,
+we saw as worthy."
+
+Player: There must be another way.
+
+If player has bone hand and no torch:
+
+Player: I think he might like this.
+Sprite 5: "I cannot take this, without giving you something in return, even though I really like it."
+
+If player has torch and bone hand:
+
+Sprite 5: "Thank you very mutch for this gift, it was really thoughtful, I can see."
+lights Players torch
+
+//Player obtains fire torch//
+
+We can make it less complex, if you only want the torch + bone skull option
+
+#######################################################################
+
+Sprite 6: NURSE
+
+Sprite 6: "G O. A W A Y."
+
+Player: Oh my, I should probably do what it sais.
+
+Sprite 6: "AAAAAAAA"
+
+Player: I don't know why, but I kind of pity it.
+
+/If Player has melodybox/
+
+Player: plays melodybox
+
+Sprite 6: "AAAAAaaaaa.... aaa....."
+
+Player: " She seems to calm down now."
+
+...
+
+Sprite 6: ... closes eyes 
+
+...
+"What a beautiful melody. Where I came from, you could hear similar melodies all over. 
+Every place had it's own, with a fitting rhythm, you were almost never left in silence,
+like you are here. Silence is a sign for danger, where I am from. But you don't seem
+dangerous at all to me.
+Let me thank you.
+
+//Player obtains kife hand//
+
+Player: What a weird present.
+
+Sprite 6: " Do not worry, they grow back. giggles
+
+#######################################################################
+
+Sprite 7: PATIENT
+
+Sprite 7: "Hey mister... as you can see, I am pretty hurt."
+
+Player: ...
+
+Sprite 7: "If you can find me some medicine, I can give you a bandage as a return, I have so many
+bandages but nothing to put in them for faster healing.
+
+Player: He seems to be getting straight to the point.
+
+Sprite 7: Come on, after all you could also get hurt easily here.
+
+Player: Why does that sound like a threat?
+
+Sprite 7: I did not mean mean it as a threat.
+Player: Can he read my mind? If you can read my mind say watermelon.
+
+...
+
+Sprite 7: ... Sooo if you have medicine come back to me, please.
+
+Player: Phew, knew it.
+
+/If player has medicine/
+
+Player hands medicine to Sprite 7
+
+Sprite 7: Oh! Thank you very much.
+Color me suprised, I did not think you would really get me some. 
+
+Player: ...
+
+Sprite 7: "Oh, yes, right. Here.
+
+//Player obtains bandages//
+
+#######################################################################
+
+Sprite 8: PIRANHA
+
+Sprite 8: snaps
+
+Player: This plant seems dangerous... and hungry, I should try to stay away from it.
+But I am getting hungry and those berries look delicious.
+
+Sprite 8: keeps snapping at Player
+
+Player: Maybe I can find a way to distract it.
+
+/If Player has dead insect/
+
+Player: Feeds dead insect to plant
+Now is my chance!
+
+plucks berries and herbs from the plant
+
+Player: I can finally eat something. Eats berries they actually taste really nice.
+Dang I hope they are not poisonous.
+
+//Player obtains herbs//
+
+#######################################################################
+
+Sprite 9: SKELETON
+
+Sprite 9: "Hello, my fleshy fella."
+
+Player: What did he just call me.
+
+Sprite 9: "Watch this" performes a dance with his axe. "Neat am I right?"
+
+Player: ...
+
+Sprite 9: "Oh I see, you are the shy type. You have a mouth for a reason though."
+
+Player: Now that he said it, how does he even talk? He does not have a mouth or
+vocal cords or even organs. He shouldn't even be alive at this point.
+
+Sprite 9: "Well, the last thing I remember is that I was with my girlfriend,
+the prettiest bones in town, haha, and suddenly I am here. What is going on, am I right?"
+
+Player: ...
+
+/If Player has knife hand/
+
+Sprite 9: "Hey mate, what's that? Looks really cool! It would suit me am I right? Hahahaha!"
+
+Player: hands knife hand to sprite 9
+
+Sprite 9: "Do not worry, I am a proud guy with honor, of course you get something as equally cool
+back here.
+
+plop
+
+//Player obtains bone hand//
+Sprite 10:
+
+#######################################################################
+
+Sprite 10:
+
+Sprite 10: "I hate this place. Makes me look like an ugly slime."
+
+Player: ...
+
+Sprite 10: "No, really I'm serious, in my land I look like a pretty, puffy being,
+the air pressure here is really not complimenting my looks down here."
+
+Player: Now I wonder what his actual form might look like.
+
+Sprite 10: "Oh well, there is nothing you can do about it, at this rate I will
+probably not make it though... I wish my family was here with me in my last moments.
+Who knows, maybe this is hell."
+
+/If Player has feather/
+
+Sprite 10: "Hey, what are you holding there?"
+
+Player hands feather to Sprite 10
+
+Sprite 10: "Unbelievable. This feather... it reminds me of my wife back home.
+Now I can see it clearly! I just had a feeling that I had a family before,
+but now I know for sure. 
+
+My wife used to collect these. Weird right? But that's why I loved her so much.
+
+Player: I guess he can keep it.
+
+#######################################################################
+
+Sprite 11: TOOTH_WALKER
+
+Sprite 11: "Am hungry."
+
+Player: He seems to have a rather unusual shape. I do not know what creatures like him might eat,
+since I cannot remember anything like him from where I am from.
+
+Player: ... But where am I from again? Argh... my head...
+
+Sprite: "Want food."
+
+/If Player has fire torch/
+
+Sprite: "TASTY"
+"DELICIOUS"
+"WONDERFUL"
+
+Player: For real? It eats... fire??
+
+Sprite drops shiny metal
+
+Sprite: "THANK YOU. THANK YOU"
+
+//Player obtains shiny metal//
+
+#######################################################################
+
+Sprite 12: VULTURE
+
+bird looks at Player
+
+Player: ...
+
+bird keeps looking
+
+/If Player has shiny metal/
+
+Bird: "Eeeek!"
+
+the bird flies down, catches your shiny metal, and flies away
+
+Player: Wow, that was rude. Wait, it left something behind.
+
+//Player obtains feather//
+
+#######################################################################
+
+Sprite 13:  WITCH
+
+Sprite 12: "How can I help you?"
+
+Player: ...
+
+Sprite 12: "Oh? Did you not come to my house for my serive? I can make anything, if potions or medicine, there is nothing that a witch can't do.
+
+Sadly almost all my rations have gone bad. I think they are not in the right habitat here.
+
+Hmm... it's really weird, I came here with my house. The other beings I talked to here
+did come all alone. I also don't know for sure if that's my house,
+I just think it's way too familiar to not be. 
+
+Player: That is indeed weird. 
+Sprite 12: "I kind of miss being able to craft something. Hey, I have an idea,
+if you can bring me ingredients, I can make something for you, free of charge, what do you think?
+
+/If Player has herbs/
+
+Sprite 12: "Oh! I think I remember a herb that looks very similar to this, back where I came from.
+Haha I didn't think I could start remembering anything just by looking at a plant. 
+
+This herb here has healing abilities. 
+
+chomp chomp chomp
+
+Sprite 12: "Just one secret ingredient, and voila! 
+
+Ah this was fun, now just like I promised, you can have it.
+
+//Player obtains medicine//
+
+#######################################################################

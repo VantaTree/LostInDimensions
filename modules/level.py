@@ -30,19 +30,38 @@ MAP_CONFIG = {
 
 NPC_CONFIG = {
     "rocky_level":[
-
+        {"pos": (115, 23), "type":"dino"},
+        {"pos": (60, 10), "type":"dog"},
+        {"pos": (7, 40), "type":"patient", "anim_speed":0.1},
+        {"pos": (48, 59), "type":"skeleton"},
+        {"pos": (113, 52), "type":"slimer"},
+        {"pos": (88, 65), "type":"tooth_walker"},
+        {"pos": (26, 25), "type":"vulture"},
     ],
     "grassy_level":[
-        {"pos": (47, 35), "type":"witch"},
+        {"pos": (32, 4), "type":"doctor", "anim_speed":0.1},
+        {"pos": (6, 46), "type":"necro"},
+        {"pos": (97, 4), "type":"eye_ball"},
+        {"pos": (41, 50), "type":"nurse", "anim_speed":0.1},
+        {"pos": (114, 15), "type":"piranha"},
+        {"pos": (62, 16), "type":"witch"},
     ]
 }
 
 DIALOGUE_CONFIG = {
     "rocky_level":[
         {"rect":(675, 128, 45, 48), "type":"green_tree"},
+        {"rect":(16, 768, 8, 32), "type":"nothing"},
+        {"rect":(16, 608, 8, 32), "type":"nothing"},
+        {"rect":(1408, 1008, 48, 48), "type":"many_crystals"},
     ],
     "grassy_level":[
         {"rect":(940, 124, 64, 36), "type":"a_house"},
+        {"rect":(1896, 1008, 8, 32), "type":"nothing"},
+        {"rect":(1896, 224, 8, 32), "type":"nothing"},
+        {"rect":(16, 400, 8, 32), "type":"nothing"},
+        {"rect":(896, 512, 48, 48), "type":"beautiful_tree"},
+        {"rect":(672, 720, 16, 32), "type":"stick"},
     ]
 }
 

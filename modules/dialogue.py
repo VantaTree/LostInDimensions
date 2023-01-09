@@ -47,7 +47,7 @@ for file in os.listdir("data/dialogues/npc"):
 
 class DialogueInteract(pygame.sprite.Sprite):
 
-    def __init__(self, master, grps, rect, type, is_npc):
+    def __init__(self, master, grps, rect, type, is_npc=None):
 
         super().__init__(grps)
         self.master = master
@@ -56,6 +56,15 @@ class DialogueInteract(pygame.sprite.Sprite):
         self.interacted = False
         self.is_npc = is_npc
         self.interacting = False
+
+    def send_signal(self):
+
+        if self.type == "stick":
+            self.master.player.inventory.add("stick")
+            self.kill()
+
+        if not self.is_npc: return
+        self.is_npc.SIGNAL.start(0)
 
 class DialogueManager:
 
@@ -107,6 +116,8 @@ class DialogueManager:
         self.page_index = 0
         self.interacting = True
         self.active.interacting = True
+        if self.active.is_npc:
+            self.active.is_npc.flip = self.active.is_npc.rect.centerx > self.master.player.hitbox.centerx
 
     def draw(self):
 
@@ -138,6 +149,7 @@ class DialogueManager:
             self.interacting = False
             self.active.interacting = False
             self.master.player.in_control = True
+            self.active.send_signal()
             return
 
         for i, line in enumerate(lines[1:]):

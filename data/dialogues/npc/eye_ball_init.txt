@@ -1,0 +1,62 @@
+&eye_ball
+Laaa la lallala lallallalla laaaaaaaaaaaaaa
+<p>
+&player
+...
+<p>
+&eye_ball
+...
+<p>
+&eye_ball
+Oh Hi didn't see you there
+<p>
+&player
+Did I interupt?
+<p>
+&eye_ball
+Oh no, It's okay
+<p>
+&eye_ball
+You want somehting?
+<p>
+&player
+...
+<p>
+&eye_ball
+I have this melody box, It plays really
+soothing music
+<p>
+&eye_ball
+Here take this, and don't scare me like that
+again...
+<p>
+&
+You obtained the "Melody Box"
+<p>
+&
+You play the music
+<p>
+&
+...soothing music comes from the box...
+<p>
+&player
+Thanks a lot for this generous gift ^^
+<p>
+&eye_ball
+^^
+<e>
+&eye_ball
+Lal lalallallllaaaaaalalal lllaaaaalalllllll
+<p>
+&eye_ball
+I like to sing when I am lonely
+<p>
+&eye_ball
+You look lost too
+<p>
+&eye_ball
+do you want to sing with me?
+<p>
+&player
+...
+<e>

@@ -1,0 +1,39 @@
+&player
+Are you lost too?
+<p>
+&slimer
+I hate this place, makes me look like an ugly
+blob of slime
+<p>
+&player
+...
+<p>
+&slimer
+No really, I'm serious, I used to be pretty
+and puffy
+<p>
+&slimer
+The air here feels like it's crushing me
+<p>
+&player
+I wonder what your actual form was like?!
+<p>
+&slimer
+At this I will probably not make it through
+<p>
+&slimer
+I wish I was with my wife, Her soft touch
+I miss her
+<p>
+&slimer
+Who knows, maybe this is hell
+<p>
+&player
+...
+<p>
+&player
+I would not like to believe that at all
+<e>
+&
+The green blob misses his wife
+<e>

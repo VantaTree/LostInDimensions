@@ -1,0 +1,55 @@
+&skeleton
+Hello my fleshy fella
+<p>
+&player
+Hey!
+<p>
+&skeleton
+Watch this
+<p>
+&player
+...
+<p>
+&
+performs a splending dance with his axe
+<p>
+&skeleton
+Neat, am I right?
+<p>
+&player
+How do you even talk...
+<p>
+&player
+Or do anything
+<p>
+&player
+You don't have a mouth or vocal cords or even
+organs
+<p>
+&player
+How are you even alive at this point
+<p>
+&skeleton
+You talk funny
+<p>
+&skeleton
+you look lost
+<p>
+&skeleton
+Well, the last thing I remember is that I was
+with my girlfriend, the prettiest bones in
+town, haha
+<p>
+&skeleton
+Now I ended up here somehow
+<p>
+&skeleton
+What is going on, am I right?
+<e>
+&skeleton
+I have been practicing a few tricks with my
+weapon here
+<p>
+&
+Starts erradically dancing...
+<e>

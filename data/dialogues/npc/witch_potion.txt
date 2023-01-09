@@ -1,0 +1,65 @@
+&witch
+Have you brought me any ingredients?
+<p>
+&witch
+OOooH
+<p>
+&witch
+That's a fine leaf you got there
+<p>
+&witch
+Only obtainable from a piranha plant in a
+completely different dimension
+<p>
+&
+You give the herb to the witch lady
+<p>
+&
+Splish... Splash
+<p>
+&
+She starts making something immediately
+<p>
+&witch
+Just onr secret ingredient, and voila!
+<p>
+&witch
+That was fun
+<p>
+&
+She pours the potion into a tiny bottle
+<p>
+&witch
+Here take this, absolutely free of charge
+<p>
+&witch
+It's a strong healing potion
+<p>
+&
+You obtained "Healing Potion"
+<p>
+&player
+Thanks a lot witch lady
+<p>
+&witch
+Becareful the potion can have side-effects
+<p>
+&player
+I am sure this will help me a lot
+<p>
+&witch
+Off you go now
+<e>
+&
+You take a sneak peak
+<p>
+&
+She is making another potion
+<p>
+&witch
+Why are you still here
+<p>
+&witch
+You'll have to pay if you want anything more
+okay
+<e>

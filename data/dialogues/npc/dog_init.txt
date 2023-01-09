@@ -1,0 +1,36 @@
+&dog
+...BARK ...BARK
+<p>
+&player
+What are you? so scary with your big teeth
+<p>
+&dog
+...BARK ...BARK
+<p>
+&dog
+There is nothing in this wasteland, only
+some red crystals
+<p>
+&dog
+I am bored I want to play
+<p>
+&dog
+You don't look like *something* I can play
+with.
+<p>
+&dog
+Bring me something to play with or begone
+<p>
+&player
+It looks like he hates anything he can't play
+with
+<p>
+&player
+I should go, Don't want to stick around
+<e>
+&dog
+WHAT ARE YOU DOING HERE
+<p>
+&dog
+Bring me somehting to play or begone
+<e>

@@ -1,0 +1,12 @@
+&
+You bandage up the injured claws
+<p>
+&dino
+...hums happily...
+<e>
+&player
+Ground: "Thanks for helping me ^^"
+<p>
+&player
+You look weird but you are very jolly.
+<e>

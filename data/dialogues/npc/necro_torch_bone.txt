@@ -1,0 +1,29 @@
+&
+You show the Bone Hand to him
+<p>
+&necro
+What do you have there?
+<p>
+&necro
+A Bone Hand! I'll gladly recieve your gift
+<p>
+&player
+...
+<p>
+&necro
+Ah, I see you have a torch with you
+Let me light it with my FIRE! to show my
+gratitude
+<p>
+&
+You obtained the "Burning Torch"
+<e>
+&necro
+What do you have there?
+<p>
+&
+...
+<p>
+&necro
+apparantly, nothing
+<e>

@@ -1,0 +1,21 @@
+&
+You approach the bird
+<p>
+&player
+What do you have to offer my friend
+<p>
+&
+The birds stares at you
+<p>
+&player
+...
+<p>
+&
+The bird stares with utmost seriousness
+<e>
+&
+The bird is still staring at you
+<p>
+&player
+...
+<e>

@@ -1,0 +1,67 @@
+&player
+Here take the stick
+<p>
+&
+You throw the stick behind him
+<p>
+&
+The dog runs over and picks the stick up
+<p>
+&player
+Wow, he is so energetic
+<p>
+&dog
+What is that thing that flies
+I like it's taste
+<p>
+&
+The dog bring back the stick and gives it back
+<p>
+&dog
+...Barks ...Happily
+<p>
+&player
+This is fun ^^
+<p>
+&player
+I should go now but I don't know if I want to
+<p>
+&
+You throw the stick exitedly anyway
+<p>
+&
+It goes extremely far
+<p>
+&player
+OH NO.
+<p>
+&
+...
+<p>
+&dog
+Look I found something tastier
+<p>
+&
+The dog gives you an insect
+<p>
+&
+You obtain a dead "Insect"
+<p>
+&player
+You are so playful, But..
+<p>
+&player
+I have to go, GoodBye
+<e>
+&
+There is a stick on the ground
+<p>
+&
+you take it and throw it
+<p>
+&dog
+...BARKS ...EXITEDLY
+<p>
+&
+The dog runs away following the stick
+<e>

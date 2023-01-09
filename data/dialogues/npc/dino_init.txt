@@ -1,0 +1,36 @@
+&dino
+...Gnarl...
+<p>
+&player
+What a weird looking thing
+<p>
+&player
+What's that ?
+somthing is written on the ground!
+<p>
+&player
+Ground: "Do you know who I am?"
+<p>
+&player
+It doesn't talk but can understand me and
+communicate by writing on the ground.
+<p>
+&dino
+...Gnarl...
+<p>
+&player
+Ground: "This ground is too rocky for me to
+write properly, I have to adapt"
+<p>
+&
+You notice that his claws are badly damaged
+<p>
+&
+Find something to help him
+<e>
+&
+His claws are badly damaged
+<p>
+&
+Find something to help him
+<e>

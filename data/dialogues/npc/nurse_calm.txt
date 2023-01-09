@@ -1,0 +1,62 @@
+&
+You start playing the melody box
+<p>
+&
+...soothing music comes from the box...
+<p>
+&nurse
+AAAAAaaaaa.... aaa.....
+<p>
+&nurse
+...
+<p>
+&player
+The music calmed you!
+<p>
+&nurse
+...closes eyes...
+<p>
+&nurse
+What a beautiful melody, I love it
+<p>
+&nurse
+I remember now, my humble town loves
+them too, each place had it's own unique
+melodies
+<p>
+&nurse
+We never let silence take over, It's a sign of
+DANGER!
+<p>
+&nurse
+This place.. it's very quite
+<p>
+&nurse
+But you don't seem dangerous
+<p>
+&nurse
+You too love the soothing melodies
+<p>
+&player
+My ears hurt, but after hearing the melody
+they no longer want to hurt ^^
+<p>
+&nurse
+Here take this
+<p>
+&
+The lady with one of her hands cuts off one
+of the other hands and gives it to you
+<p>
+&
+You obtained the "Knife Hand"
+<p>
+&player
+...
+<p>
+&nurse
+Don't worry they grow back ^^
+<e>
+&
+You hear a soothing melody
+<e>

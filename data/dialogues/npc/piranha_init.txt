@@ -1,0 +1,26 @@
+&piranha
+...CHOMP ...CHOMP
+<p>
+&player
+This plant is dangerous and hungry
+<p>
+&player
+I should stay away from it
+<p>
+&piranha
+...CHOMP ...CHOMP
+<p>
+&player
+those berries on it's stem look delicious
+<e>
+&player
+I am very hungry, Just wish I can get those
+berries
+<p>
+&piranha
+..CHOMP CHOMP.... CHOMP
+<p>
+&
+The plant tries to reach for you, but can't
+come any closer
+<e>

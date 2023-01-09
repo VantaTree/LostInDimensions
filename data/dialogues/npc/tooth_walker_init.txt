@@ -1,0 +1,34 @@
+&tooth_walker
+Hungry... Hungry...
+<p>
+&player
+...
+<p>
+&player
+He seems to have a rather unsusual shape
+<p>
+&player
+What do they even eat
+<p>
+&player
+I think I have seen other creatures like him
+I should know what they eat
+<p>
+&player
+... But where am I from again?
+<p>
+&player
+Argh... my head...
+<p>
+&tooth_walker
+Want food...
+<p>
+&tooth_walker
+Ache stomach
+<e>
+&tooth_walker
+Want food...
+<p>
+&tooth_walker
+Ache stomach
+<e>

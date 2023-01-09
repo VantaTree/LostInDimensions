@@ -1,0 +1,35 @@
+&
+You quickly hand him the Medicine bottle
+<p>
+&patient
+OH! Thank you very much
+<p>
+&patient
+Color me supried, I didn't think you would
+really get me some
+<p>
+&player
+I am surprised that you are surprised
+<p>
+&patient
+...
+<p>
+&patient
+Here take this bandage
+<p>
+&patient
+I won't be needing them anymore now
+<p>
+&
+The injured man rips a bandage from his skin
+and gives it to you
+<p>
+&
+You obtained A "Bandage"
+<e>
+&patient
+This medicine works really well
+<p>
+&patient
+The pain just dies
+<e>

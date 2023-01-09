@@ -1,0 +1,66 @@
+&witch
+How can I help you?
+<p>
+&player
+...
+<p>
+&witch
+Oh you don't need any servive of mine
+<p>
+&witch
+I can make all sorts of potions and drinks
+that make you feel weird
+<p>
+&witch
+Saldy all the rations I carry in my hat have
+gone bad
+<p>
+&witch
+I bet it's this dimension that caused it
+<p>
+&player
+This place is really weird
+<p>
+&player
+And I am lost here
+<p>
+&witch
+I might be lost too
+<p>
+&witch
+I always bring my house to where ever I go
+But I can't open the house anymore
+I swear It's mine, who else's would it be
+<p>
+&witch
+All the people I talked to here don't seem to
+have brought anything with them
+<p>
+&player
+You must ended up in here like them too
+<p>
+&witch
+I suppose
+<p>
+&witch
+sigh...
+<p>
+&witch
+It's fun making potions, But I can't,
+<p>
+&player
+fun...?
+<p>
+&witch
+If you help me get some ingredients I'll be
+abe to make something for you in return
+<e>
+&witch
+Have you brought me any ingredients
+<p>
+&witch
+No, nothing useful
+<p>
+&player
+...
+<e>

@@ -172,6 +172,7 @@ class Player:
 
         self.master.debug("pos: ", (round(self.hitbox.centerx, 2), round(self.hitbox.bottom, 2)))
         self.master.debug("on ground: ", self.on_ground)
+        self.master.debug("inventory: ", self.inventory)
 
 
 def do_collision(player:Player, level, axis, master):

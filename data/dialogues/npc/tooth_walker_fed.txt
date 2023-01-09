@@ -1,0 +1,60 @@
+&tooth_walker
+FOOD!
+<p>
+&tooth_walker
+I See
+<p>
+&tooth_walker
+There... there...
+<p>
+&player
+...
+<p>
+&
+It looks at the burning torch with a wide
+smile on it's face? head?
+<p>
+&
+You give the burning torch to him
+<p>
+&tooth_walker
+TASTY...
+<p>
+&tooth_walker
+DELECIOUS... WONDERFUL...
+<p>
+&player
+...
+<p>
+&player
+HE EATS FIRE!
+<p>
+&player
+I am gald to have it taken off me with a
+purpose
+<p>
+&player
+I could barely hold it
+<p>
+&
+The strange creature spits out a shiny crystal
+<p>
+&
+You pick it up
+<p>
+&
+You obtained a "Shiny Crystal"
+<p>
+&
+It has bite marks on it
+<p>
+&player
+...
+<e>
+&tooth_walker
+NOM... NOM...
+<p>
+&
+You can see smoke coming out from inside
+him
+<e>

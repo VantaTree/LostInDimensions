@@ -1,0 +1,47 @@
+&doctor
+Are you lost my child?
+<p>
+&player
+OH, He is very similar looking to me, could it
+be that we are from the same place?
+<p>
+&doctor
+This is a weird place, isn't it, But...
+<p>
+&doctor
+Even if it is unfamilar for me, it doesn't
+matter where I am, for my faith will always
+be my guide
+<p>
+&player
+I do not know if this is noble or strange...
+Was I religious too? Ugh I don't remember
+My head hurts
+<p>
+&doctor
+Are you okay my child? you look pained
+<p>
+&doctor
+Take this, it might prove itself useful to
+someone like you
+<p>
+&
+The man spread his hand out in your direction
+and from it a torch grew out.
+<p>
+&
+You obtained an "Unlit Torch"
+<p>
+&player
+Maybe I can find a way to light it?
+<p>
+&doctor
+It must be fate that we crossed path in this
+mess of worlds
+<e>
+&doctor
+I have nothing to offer you anymore
+<p>
+&doctor
+You must go on from here onwards
+<e>

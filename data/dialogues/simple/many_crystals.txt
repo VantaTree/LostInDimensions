@@ -1,0 +1,3 @@
+&player
+So many red crystals in one place
+<e>

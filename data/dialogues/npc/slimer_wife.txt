@@ -1,0 +1,34 @@
+&
+You try to calm him down
+<p>
+&slimer
+What is that soft looking thing with you
+<p>
+&player
+This?
+<p>
+&
+You show him the feather
+<p>
+&
+The green blob takes and feather and rubs it
+<p>
+&slimer
+This thing...
+<p>
+&slimer
+It's so soft, remind me of my family when we
+are together, speacially my wife
+<p>
+&slimer
+When we **** t******
+<p>
+&
+Oops I dropped on*
+<e>
+&player
+...
+<p>
+&player
+I don't want to talk to him anymore
+<e>

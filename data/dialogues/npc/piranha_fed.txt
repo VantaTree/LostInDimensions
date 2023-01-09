@@ -1,0 +1,34 @@
+&
+You throw the dead insect towards the plant
+<p>
+&
+It catches the insect midair with it's huge
+mouth
+<p>
+&piranha
+CHOMP ...GULP
+<p>
+&player
+Now is my chance
+<p>
+&
+You carefully pluck a few berries and leaves
+from it's stem
+<p>
+&piranha
+...
+<p>
+&player
+I can finally eat something, I hope they are
+not poisonous
+<p>
+&
+You eat the berries and save the leaves for
+later
+<p>
+&
+You obtained A "Herb"
+<e>
+&player
+I don't need any more berries from it
+<e>

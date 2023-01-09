@@ -1,0 +1,44 @@
+&skeleton
+That's a cool knife you got there
+<p>
+&skeleton
+It would suit me perfectly am I right?
+<p>
+&
+The skeleton reach his hand out to you
+<p>
+&player
+...
+<p>
+&
+You place the knife hand in his hand
+<p>
+&skeleton
+Don't worry, I am a proud guy with honor,
+ofcourse you get something as equally as cool
+back here
+<p>
+&
+The skeleton gives you a skeleton hand!
+<p>
+&
+You obtained the "Skeleton Hand"
+<p>
+&player
+...
+<e>
+&skeleton
+I swear I used to be able to this trick way
+better
+<p>
+&skeleton
+I just can't understand what suddenly
+happened to me?
+<p>
+&
+You notice that the skeleton has only one
+hand attached
+<p>
+&player
+Oh jeez...
+<e>

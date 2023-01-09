@@ -1,0 +1,47 @@
+&patient
+Hey mister... as you can see, I am pretty
+badly hurt
+<p>
+&player
+...
+<p>
+&patient
+If you can find me some medicine, I can use
+it to kill my pain before it kills me
+<p>
+&patient
+I have so many bandages but they don't help
+with the pain
+<p>
+&player
+I am sure I can find something to help you
+<p>
+&player
+I hope...
+<p>
+&patient
+Come on, after all you could also get hurt
+here easily
+<p>
+&player
+Is that a threat?!
+<p>
+&patient
+Oh no, I didn't mean it like that
+<p>
+&patient
+I can't hurt you just as I can't go anywhere
+to find medicine for myself
+<e>
+&patient
+This Pain!!!
+<p>
+&patient
+It's killing me
+<p>
+&patient
+AAAA AH
+<p>
+&player
+...
+<e>

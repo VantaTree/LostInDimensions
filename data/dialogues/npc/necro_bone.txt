@@ -1,0 +1,29 @@
+&
+You show the Bone Hand to him
+<p>
+&necro
+what do you have there
+<p>
+&necro
+A Bone Hand, A fine collectible to add to my
+collection, BUT...
+<p>
+&necro
+I shall not take your gift as I have nothing to
+give you in return
+<e>
+&
+You show the Bone Hand to him
+<p>
+&necro
+what do you have there
+<p>
+&necro
+A Bone Hand, A fine cllectible to add to my
+collection, BUT...
+<p>
+&necro
+I shall not take your gift as I have nothing to
+give you in return
+<e>
+

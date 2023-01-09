@@ -1,0 +1,34 @@
+&vulture
+Eeeeek!
+<p>
+&
+the bird snatches the shiny crystal from you
+<p>
+&player
+How dare you prick!
+<p>
+&vulture
+GULP...
+<p>
+&
+The bird swallows the shiny crystal
+<p>
+&player
+GASP...
+<p>
+&
+you are even more surprised
+<p>
+&
+You try to stop it from swallowing it, but you
+only get a hold of it's feathers
+<p>
+&
+You obtained a "Feather"
+<e>
+&vulture
+Gnarl... Grrrr....
+<p>
+&player
+That absolute prick
+<e>
