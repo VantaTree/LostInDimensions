@@ -64,6 +64,9 @@ def dino(self:NPC):
         elif self.dialogue.type == "dino_bandage" and self.state == "bandage":
             self.master.player.inventory.remove(self.state)
             self.state = "happy"
+            self.master.game.ending += 1
+            if self.master.game.ending == 1:
+                self.master.game.TRANSITION_CORRIDOR.start(30_000)
 
     if self.state == "bandage" and self.state in self.master.player.inventory:
         self.dialogue.type = "dino_bandage"
@@ -191,6 +194,9 @@ def slimer(self:NPC):
         elif self.dialogue.type == "slimer_wife" and self.state == "sad":
             self.master.player.inventory.remove("feather")
             self.state = "happy"
+            self.master.game.ending += 1
+            if self.master.game.ending == 1:
+                self.master.game.TRANSITION_CORRIDOR.start(30_000)
 
     if self.state == "sad" and "feather" in self.master.player.inventory:
         self.dialogue.type = "slimer_wife"
@@ -241,8 +247,19 @@ def witch(self:NPC):
         self.dialogue.type = "witch_potion"
         self.dialogue.interacted = False
 
+def necro2(self:NPC):
+
+        if self.SIGNAL.check():
+            if self.state == "init":
+                self.state = "search"
+                if self.master.game.CORRIDOR:
+                    self.master.game.THANKS.start(5_000)
+                    self.master.player.dying = True
+                    self.master.player.anim_frame = 0
+                    self.master.player.in_control = False
+
 
 check_dialogue = {"dino":dino, "doctor":doctor, "dog":dog, "eye_ball": eye_ball, "necro":necro,
     "nurse":nurse, "patient":patient, "piranha":piranha, "skeleton":skeleton, "slimer":slimer,
-    "tooth_walker":tooth_walker, "vulture":vulture, "witch":witch}
+    "tooth_walker":tooth_walker, "vulture":vulture, "witch":witch, "necro2":necro2}
 

@@ -7,7 +7,7 @@ class Master:
     def __init__(self):
 
         self.app:App
-        self.debug:Debug
+        # self.debug:Debug
         self.dt:float
         self.offset:pygame.Vector2
 
@@ -35,8 +35,8 @@ class App:
         self.master = Master()
         SoundSet(self.master)
         self.master.app = self
-        self.debug = Debug()
-        self.master.debug = self.debug
+        # self.debug = Debug()
+        # self.master.debug = self.debug
         self.game = Game(self.master)
         self.main_menu = MainMenu(self.master)
 
@@ -47,7 +47,7 @@ class App:
 
             self.master.dt = self.clock.tick(FPS) / 16.667
             if self.master.dt > 10: self.master.dt = 10
-            self.debug("FPS:", round(self.clock.get_fps(), 2))
+            # self.debug("FPS:", round(self.clock.get_fps(), 2))
 
             for event in pygame.event.get((pygame.QUIT)):
                 
@@ -58,7 +58,7 @@ class App:
             await asyncio.sleep(0)
 
             self.run_states()
-            self.debug.draw()
+            # self.debug.draw()d
 
     def run_states(self):
 

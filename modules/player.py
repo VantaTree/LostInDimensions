@@ -41,13 +41,16 @@ class Player:
         self.in_control = False
         self.transition_state = "sitting"
 
+        self.dying = False
+
         self.inventory = set()
 
         self.JUMP_TIMER = CustomTimer()
 
     def update_image(self):
 
-        if self.transition_state: state = self.transition_state
+        if self.dying: state = "die"
+        elif self.transition_state: state = self.transition_state
         elif self.landing: state = "land"
         elif self.jumping: state = "jump"
         elif not self.on_ground: state = "midair"
@@ -57,13 +60,17 @@ class Player:
             # if random.randint(1, 10) > 3:
             #     state += "_blink"
 
-        self.master.debug("state: ", state)
+        # self.master.debug("state: ", state)
 
         try:
             image = self.animations[state][int(self.anim_index)]
         except IndexError:
             image = self.animations[state][0]
             self.anim_index = 0
+
+            if state == "die":
+                image = self.animations[state][-1]
+                self.anim_index = 99
 
             if state == "to_sit": self.transition_state = "sitting"
             elif state == "to_stand":
@@ -72,7 +79,8 @@ class Player:
             if self.jumping: self.jumping = False
             if self.landing: self.landing = False
 
-        if self.transition_state: self.anim_speed = 0.15
+        if self.dying: self.anim_speed = 0.1
+        elif self.transition_state: self.anim_speed = 0.15
         elif self.jumping or self.landing: self.anim_speed = 0.2
         elif self.moving: self.anim_speed = 0.15
         else: self.anim_speed = 0.08
@@ -122,6 +130,10 @@ class Player:
 
     def move(self):
 
+        if self.master.game.CORRIDOR:
+            self.move_end()
+            return
+
         self.hitbox.centerx += self.velocity.x * self.master.dt
         do_collision(self, self.master.game.level, 0, self.master)
         self.hitbox.centery += self.velocity.y * self.master.dt
@@ -132,6 +144,29 @@ class Player:
 
         do_collision(self, self.master.game.level, 1, self.master)
         do_collision(self, self.master.game.level, 2, self.master)
+
+        if self.power_land > 1 and self.on_ground:
+            self.landing = True
+            self.anim_index = 0
+            if self.power_land >= 9:
+                self.master.sounds["big_thud"].play()
+
+    def move_end(self):
+
+        self.hitbox.center += self.velocity * self.master.dt
+
+        self.power_land = 0
+        if not self.on_ground: self.power_land = self.velocity.y
+        self.on_ground = False
+
+        if self.hitbox.bottom > H-29:
+            self.hitbox.bottom = H-29
+            self.on_ground = True
+            self.velocity.y = 0
+        if self.hitbox.left < 0:
+            self.hitbox.left = 0
+        if self.hitbox.right > 128*TILESIZE:
+            self.hitbox.right = 128*TILESIZE
 
         if self.power_land > 1 and self.on_ground:
             self.landing = True
@@ -173,9 +208,9 @@ class Player:
         self.move()
         self.update_image()
 
-        self.master.debug("pos: ", (round(self.hitbox.centerx, 2), round(self.hitbox.bottom, 2)))
-        self.master.debug("on ground: ", self.on_ground)
-        self.master.debug("inventory: ", self.inventory)
+        # self.master.debug("pos: ", (round(self.hitbox.centerx, 2), round(self.hitbox.bottom, 2)))
+        # self.master.debug("on ground: ", self.on_ground)
+        # self.master.debug("inventory: ", self.inventory)
 
 
 def do_collision(player:Player, level, axis, master):

@@ -25,7 +25,7 @@ MAP_CONFIG = {
         "parallax_surf": ["back_g", "middle_g"],
         "parallax_off":[(W/2, 128), (W/2, 128)], #608
         "parallax_v":[(.3, 1), (.4, 1)],
-    }   
+    },
 }
 
 NPC_CONFIG = {
@@ -39,7 +39,7 @@ NPC_CONFIG = {
         {"pos": (26, 25), "type":"vulture"},
     ],
     "grassy_level":[
-        {"pos": (32, 4), "type":"doctor", "anim_speed":0.1},
+        {"pos": (69, 31), "type":"doctor", "anim_speed":0.1},
         {"pos": (6, 46), "type":"necro"},
         {"pos": (97, 4), "type":"eye_ball"},
         {"pos": (41, 50), "type":"nurse", "anim_speed":0.1},
@@ -61,7 +61,8 @@ DIALOGUE_CONFIG = {
         {"rect":(1896, 224, 8, 32), "type":"nothing"},
         {"rect":(16, 400, 8, 32), "type":"nothing"},
         {"rect":(896, 512, 48, 48), "type":"beautiful_tree"},
-        {"rect":(672, 720, 16, 32), "type":"stick"},
+        # {"rect":(672, 720, 16, 32), "type":"stick"},
+        {"rect":(1184, 880, 64, 48), "type":"stick"},
     ]
 }
 
@@ -171,8 +172,6 @@ class Level:
             for i in range(ceil((W-pos[0])/img.get_width())):
                 self.screen.blit(img, (pos[0]+ i*img.get_width(), pos[1]))
 
-
-
         self.screen.blit(self.map_surf, self.master.offset)
         
         # for y, row in enumerate(self.collision):
@@ -204,3 +203,62 @@ class Level:
         self.npc_grp.update()
         self.portal0.update()
         self.portal1.update()
+
+
+class Corridor:
+
+    def __init__(self, master):
+
+        self.master = master
+        self.screen = pygame.display.get_surface()
+
+        self.bg = pygame.image.load("graphics/maps/corridor.png").convert()
+        self.fg = pygame.image.load("graphics/maps/corridor_rail.png").convert_alpha()
+
+        self.start_pos = 16, H-29
+        self.size = (128, 32)
+        self.bg_x = 0
+
+        self.dg_manager = DialogueManager(master)
+        self.villan = NPC(master, [], self, (123, 15), "necro2", flip=False)
+
+        #necro pos: 123, 9
+    
+    def transition_to(self):
+
+        self.master.player.hitbox.midbottom = self.start_pos
+        self.master.offset =  (self.master.player.hitbox.center - pygame.Vector2(W/2, H/2)) * -1
+        self.facing_right = True
+
+    def draw_bg(self):
+
+        self.screen.fill(0x0)
+
+        if self.bg_x + self.master.offset.x < -576:
+            self.bg_x += 576
+        elif self.bg_x + self.master.offset.x > 0:
+            self.bg_x -= 576
+
+
+        self.screen.blit(self.bg, (self.bg_x, 128)+self.master.offset)
+        self.screen.blit(self.bg, (self.bg_x+576, 128)+self.master.offset)
+
+        self.villan.draw()
+
+    def draw_fg(self):
+
+        if self.master.player.in_control or self.dg_manager.interacting: self.dg_manager.draw()
+
+    def update(self):
+
+        camera_rigidness = 0.18 if self.master.player.moving else 0.05
+        self.master.offset -= (self.master.offset + (self.master.player.hitbox.center - pygame.Vector2(W/2, H/2)))\
+            * camera_rigidness * self.master.dt
+
+        self.master.offset.y = 0
+        if self.master.offset.x > 0: self.master.offset.x = 0
+        if self.master.offset.x < -1*(self.size[0]*TILESIZE - W):
+            self.master.offset.x = -1*(self.size[0]*TILESIZE - W)
+
+        self.dg_manager.update()
+        self.villan.update()

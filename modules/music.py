@@ -53,11 +53,11 @@ class Music:
             if not self.started_playing:
                 pygame.mixer.music.play(loops=-1, fade_ms= 2_000)
                 self.started_playing = True
-            else:
-                pygame.mixer.music.unpause()
+        #     else:
+        #         pygame.mixer.music.unpause()
 
-            self.is_playing = True
+        #     self.is_playing = True
 
-        elif not self.can_play and self.is_playing:
-            pygame.mixer.music.pause()
-            self.is_playing = False
+        # elif not self.can_play and self.is_playing:
+        #     pygame.mixer.music.pause()
+        #     self.is_playing = False

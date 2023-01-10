@@ -1,0 +1,113 @@
+&necro
+Welcome back!
+<p>
+&player
+...
+<p>
+&player
+How are you at the end of this very long
+corridor?
+<p>
+&necro
+Haha, You see I collect souls, but no ordinary
+souls, special powerfull ones.
+<p>
+&necro
+You know like you
+<p>
+&player
+WHAT! I don't know what you are talking
+about, I don't even know who I am
+<p>
+&necro
+You are so Naive!
+<p>
+&necro
+That is how I am able to collect so many
+souls
+<p>
+&necro
+By burning your memories, and putting
+them in my specially crafted dimension
+<p>
+&player
+It was you all along
+<p>
+&necro
+Yes my dear child
+<p>
+&necro
+You are very dear to me
+<p>
+&necro
+I mean you Powerfull soul, Haha
+<p>
+&player
+What about the Rest of the people
+<p>
+&necro
+Them? they are not special, I have inspected
+each of them, Not everyone I capture has a
+Soul like you
+<p>
+&player
+WHAT HAVE YOU DONE
+<p>
+&necro
+...
+<p>
+&necro
+You know what...
+<p>
+&necro
+We aren't too different, I knew it must be
+you when I gave you the flame, It was
+draining your soul all along, Muhahahah
+<p>
+&necro
+It's about time It finishes it's purpose
+<p>
+&player
+Wait, that's impossible I gave the burning
+torch away
+<p>
+&necro
+You think that torch was important, NO
+not at all
+<p>
+&necro
+I tricked you
+<p>
+&player
+...
+<p>
+&
+You feel the life draining from you
+<p>
+&player
+What can I even do now?
+<p>
+&player
+I have no Memory of anythiing from my past
+<p>
+&
+You don't feel you legs anymore
+<p>
+&
+You struggle to stand
+<p>
+&
+The Necromancer waits patiently for you to
+finish
+<p>
+&
+Farewell my fried
+<p>
+&
+It was nice being with you
+.                                         -Narrator
+<e>
+&necro
+Oki, ERROR ERROR thsi is not supposed
+To be shown contact dev
+<e>
